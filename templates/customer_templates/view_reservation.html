@@ -1,0 +1,62 @@
+{% extends 'customer_templates/dashbord.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="">
+  <label for="party-type" class="form-control">Party Type:</label>
+  <select id="party-type" name="party-type">
+   <option value="" class="form-control">Select</option>
+   <option value="restaurant-dining" class="form-control">Restaurant Dining</option>
+   <option value="events-party" class="form-control">Events Party</option>
+  </select>
+  <div id="restaurant-options" style="display:none;"></div>
+  <table class="table table-bordered" style="background-color: aliceblue;">
+    <tr style="background-color: #15283c;">
+      <td width="104">Restaurant_name</td>
+      <td width="109">Restaurant_phone</td>
+      <td width="90">No of people </td>
+      <td width="30">Time</td>
+      <td width="29">Date</td>
+      <td></td>
+    </tr>
+    {% for i in res %}
+    <tr>
+      <td>{{i.RESTAURANT.r_name}}</td>
+      <td>{{i.RESTAURANT.r_mobile}}</td>
+      <td>{{i.NOP}}</td>
+      <td>{{i.time}}</td>
+      <td>{{i.date}}</td>
+      <form id="form1" name="form1" method="post" action="" class="form-control">
+        {% csrf_token %}
+        <td><a href="{% url 'cancel' i.id %}" class="btn btn-danger">cancel</a></td>
+    </tr>
+    {% endfor %}
+  </table>
+  </div>
+  <p>&nbsp;</p>
+  <div id="event-options" style="display:none;">
+  <table class="table table-bordered" style="background-color: aliceblue;">
+    <tr style="background-color: #15283c;">
+      <td width="104">Restaurant_name</td>
+      <td width="109">Restaurant_phone</td>
+      <td width="90">No of people </td>
+      <td width="30">Type</td>
+      <td width="29">Date</td>
+    </tr>
+    {% for i in ev %}
+    <tr>
+      <td>{{i.RESTAURANT.r_name}}</td>
+      <td>{{i.RESTAURANT.r_mobile}}</td>
+      <td>{{i.NOP}}</td>
+      <td>{{i.event_type}}</td>
+      <td>{{i.date}}</td>
+    </tr>
+    {% endfor %}
+  </table>
+  </div>
+  <p>&nbsp;</p>
+</form>
+<script> const partyTypeSelect = document.getElementById('party-type');
+  const restaurantOptions = document.getElementById('restaurant-options');
+     const eventOptions = document.getElementById('event-options'); 
+     partyTypeSelect.addEventListener('change', function() { if (partyTypeSelect.value === 'restaurant-dining') { restaurantOptions.style.display = 'block'; eventOptions.style.display = 'none'; } else if (partyTypeSelect.value === 'events-party') { eventOptions.style.display = 'block'; restaurantOptions.style.display = 'none'; } else { restaurantOptions.style.display = 'none'; eventOptions.style.display = 'none'; } });
+   </script> 
+{% endblock %}

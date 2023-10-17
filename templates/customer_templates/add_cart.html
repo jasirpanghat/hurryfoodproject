@@ -1,0 +1,27 @@
+{% extends 'customer_templates/dashbord.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="">
+  {% csrf_token %}
+  <table class="table table-bordered" style="background-color: aliceblue;">
+    <tr>
+      <td>Quantity:</td>
+      <td>
+        <input type="text" name="textfield" required class="form-control"/>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+      <div align="center">
+        <input type="submit" name="Submit" value="Submit" class="btn btn-success"/>
+      </div>
+
+      </td>
+    </tr>
+  </table>
+  
+</form>
+<script>
+  var message="{{message}}";
+  alert(message)
+</script>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'restuarant_templates/dashbord.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="">
+  <table class="table table-bordered" style="background-color: aliceblue;">
+    <tr style="background-color: #15283c;">
+      <td>Customer_name</td>
+      <td>Customer_phone</td>
+      <td>No.of Guest</td>
+      <td>Event_type</td>
+      <td>Date</td>
+      <td>Special_request</td>
+      <td></td>
+    </tr>
+    {% for i in res %}
+    <tr>
+      <td>{{i.customer.c_name}}</td>
+      <td>{{i.customer.c_phone}}</td>
+      <td>{{i.NOP}}</td>
+      <td>{{i.event_type}}</td>
+      <td>{{i.date}}</td>
+      <td>{{i.s_request}}</td>
+      <td><a href="{% url 'remove_event' i.id %}" class="btn btn-danger">Remove</a></td>
+
+    </tr>
+    {% endfor %}
+  </table>
+</form>
+{% endblock %}

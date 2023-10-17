@@ -1,0 +1,88 @@
+{% extends 'customer_templates/dashbord.html' %}
+{% block body %}
+<head><style>
+    .card {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.form-group label {
+  font-weight: bold;
+}
+
+.form-group input {
+  border-radius: 0;
+  border-color: #ccc;
+}
+
+.form-group input:focus {
+  border-color: #007bff;
+  box-shadow: none;
+}
+.box {
+    
+  
+  
+   border-radius: 2px;
+   border: 1px solid #ccc;
+   width:10%;
+   box-sizing: border-box;
+   font-size: 16px;
+  }
+    
+    </style>
+    
+</head>
+
+  <form method="post" action= "{% url 'confirm' sum1 %}">
+    {% csrf_token %}
+    <div class="container">
+        
+          <h2 class="mb-3">Payment Details</h2>
+          
+          <div class="form-group">
+            
+            <h4 class="form-control" name="amount"  ><label >Amount:</label><div class="box">{{sum1}}</div></h4>
+           
+          </div>
+          <div class="form-group">
+
+            <label for="cardNumber">Card Number</label>
+            <input type="text" class="form-control" required id="cardNumber" placeholder="Enter your card number">
+          </div>
+          <div class="form-group">
+            <label for="expiryDate">Expiry Date</label>
+            <input type="text" class="form-control" id="expiryDate" placeholder="MM/YY" required>
+          </div>
+          <div class="form-group">
+            <label for="cvv">CVV</label>
+            <input type="text" class="form-control" id="cvv" placeholder="Enter your CVV" required>
+          </div>
+          <button type="submit" class="btn btn-success">Submit Payment</button>
+        
+      </div>
+    </form>
+      
+        <!-- <script>const form = document.querySelector('form');
+            form.addEventListener('submit', function(e) {
+              e.preventDefault();
+              const cardNumber = document.querySelector('#cardNumber').value;
+              const expiryDate = document.querySelector('#expiryDate').value;
+              const cvv = document.querySelector('#cvv').value;
+              
+              // Perform validation here
+              // ...
+            
+              // Display success or error message
+              const message = document.createElement('p');
+              if (isValid) {
+                message.classList.add('text-success');
+                message.textContent = 'Payment successful!';
+              } else {
+                message.classList.add('text-danger');
+                message.textContent = 'Payment failed.';
+              }
+              form.appendChild(message);
+            });</script> -->
+       
+{% endblock %}

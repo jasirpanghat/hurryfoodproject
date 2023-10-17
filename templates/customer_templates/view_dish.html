@@ -1,0 +1,66 @@
+{% extends 'customer_templates/dashbord.html' %}
+{% block body %}
+<head>
+  <style>
+    .card {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  text-align: center;
+  width: 150px;
+  float: left;
+  margin-left: 20px;
+}
+
+.card img {
+  max-width: 100%;
+}
+
+.card h2 {
+  font-size: 1.2rem;
+  margin: 10px 0;
+}
+
+.card p {
+  font-size: 1rem;
+  margin: 0;
+}
+
+.card button {
+  background-color: #007bff;
+  border: none;
+  color: #fff;
+}
+  </style>
+</head>
+<form id="form1" name="form1" method="post" action="">
+  {% for i in res %}
+  <!-- <table class="table table-bordered">
+    {% csrf_token %}
+
+    <tr>
+      <td><img src="{{i.d_photo.url}}" height="100px" width="100px"></td>
+    </tr>
+    <tr>
+      <td>{{i.d_name}}</td>
+    </tr>
+    <tr>
+      <td>{{i.d_discription}}</td>
+    </tr>
+    <tr>
+      <td>{{i.d_price}}</td>
+    </tr>
+    <tr>
+      <td><a href="{% url 'cart' i.d_id  %}" class="btn btn-primary">GO</a></td>
+    </tr>
+  </table> -->
+  <div class="card">
+    <img src="{{i.d_photo.url}}" height="150px" width="150px">
+    <h2>{{i.d_name}}</h2>
+    <h5>{{i.d_discription}}</h5>
+    <h5>{{i.d_price}}</h5>
+    <a href="{% url 'cart' i.d_id  %}" class="btn btn-primary">GO</a>
+  </div>
+  {% endfor %}
+</form>
+{% endblock %}

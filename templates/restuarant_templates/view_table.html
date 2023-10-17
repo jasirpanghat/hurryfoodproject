@@ -1,0 +1,24 @@
+{% extends 'restuarant_templates/dashbord.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="">
+  <table class="table table-bordered" style="background-color: aliceblue;">
+    <tr style="background-color: #15283c;">
+      <td>Number Of Table</td>
+      <td>Total_Capacity</td>
+      <td>available_Capacity</td>
+      <td>&nbsp;</td>
+      
+    </tr>
+    {% for i in res %}
+    <tr>
+      <td>{{i.number_table}}</td>
+      <td>{{i.total}}</td>
+      <td>{{i.t_capacity}}</td>
+      <td><a href="{% url 'edittable' i.t_id  %}" class="btn btn-primary">Add More</a><br><br>
+      <a href="{% url 'delete_table' i.t_id %}" class="btn btn-danger">Delete</a></td>
+      
+    </tr>
+    {% endfor %}
+  </table>
+</form>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'customer_templates/dashbord.html' %}
+{% block body %}
+      <table class="table table-bordered" style="background-color: aliceblue;">
+        <tr style="background-color: #15283c;">
+          <td>Restaurant</td>
+          <td>Photo</td>
+          <td>Name</td>
+          <td>Discription</td>
+          <td>Price</td>
+          <td>Quantity</td>
+          
+          <td>&nbsp;</td>
+        </tr>
+        {% for i in res %}
+        <tr>
+          <td>{{i.ct_restaurant.r_name}}</td>
+          <td><img src="{{i.ct_dish.d_photo.url}}" height="200px" width="200px"></td>
+          <td>{{i.ct_dish.d_name}}</td>
+          <td>{{i.ct_dish.d_discription}}</td>
+          <td>{{i.ct_dish.d_price}}</td>
+          <td><p>{{i.quantity}}
+          <form id="form1" name="form1" method="post" action="{% url 'cartplus' i.ct_id %}">
+            {% csrf_token %}
+        
+          
+          <input type="submit" name="Submit" value="+" class="form-control">
+          </a>
+          
+          
+          <input  type="submit" name="Submit" value="-" class="form-control">
+          </a></p></td>
+           
+          
+          <td><a href="{% url 'remove' i.ct_id %}" class="btn btn-danger">Remove</a></td>
+        </tr>
+        {% endfor %}
+      </table>
+      <a href="{% url 'place' %}" class="btn btn-primary">Place_Order</a>
+    </form>
+
+  
+{% endblock %}

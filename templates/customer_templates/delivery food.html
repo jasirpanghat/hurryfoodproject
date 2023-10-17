@@ -1,0 +1,36 @@
+{% extends 'customer_templates/dashbord.html' %}
+{% block body %}
+
+ 
+
+<form id="form1" name="form1" method="post" action="">
+  <table class="table table-bordered"  style="background-color: aliceblue;">
+    <tr style="background-color: #15283c;" >
+      
+      <td>Dish_Name</td>
+      <td>Discription</td>
+      <td>Quantity</td>
+      <td>Restaurant</td>
+      <td>contact</td>
+      <td>status</td>
+      
+    </tr>
+    {% for i in res %}
+    <tr>
+      <td>{{i.dish}}</td>
+      <td>{{i.discription}}</td>
+      
+      <td>{{i.quantity}}</td>
+      <td>{{i.RESTAURANT.r_name}}</td>
+      <td>{{i.RESTAURANT.r_mobile}}</td>
+       
+      <td>{{i.status}}</td>
+      {% if i.status == "success" %}
+        <td><a href="{% url 'order_cancel' i.id %}" class="button btn-danger">CANCEL</a></td>
+      {% endif %}
+
+      </tr>
+      {% endfor %}
+  </table>
+</form>
+{% endblock %}

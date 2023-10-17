@@ -1,0 +1,12 @@
+
+{% extends 'customer_templates/dashbord.html' %}
+{% block body %}
+
+<h2>Welcome To Our Restaurant</h2><br><br>
+<h4>Please Choose What You Need</h4><br><br>
+
+    <a href="{% url 'cview_dish' %}" class="btn btn-dark">Dishes</a><br><br>
+    <a href="{% url 'cview_offer' %}" class="btn btn-info">offer</a><br><br>
+    <a href="{% url 'reservation' %}" class="btn btn-secondary">Reservation</a><br><br>
+    <a href="{% url 'feedback' %}" class="btn btn-warning">feedback</a><br><br>
+{% endblock %}

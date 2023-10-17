@@ -1,0 +1,19 @@
+{% extends 'restuarant_templates/dashbord.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="">
+  <table class="table table-bordered" style="background-color: aliceblue;">
+    <tr style="background-color: #15283c;">
+      
+      <td>Customer_name</td>
+      <td>feedback</td>
+    </tr>
+    {% for i in res %}
+    <tr>
+      
+      <td>{{i.customer.c_name}}</td>
+      <td>{{i.feedback}}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</form>
+{% endblock %}

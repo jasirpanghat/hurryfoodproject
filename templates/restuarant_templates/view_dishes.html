@@ -1,0 +1,27 @@
+{% extends 'restuarant_templates/dashbord.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="">
+  <table class="table table-bordered" style="background-color: aliceblue;">
+    <tr style="background-color: #15283c;">
+      <td>slno</td>
+      <td>Dish</td>
+      <td>Discription</td>
+      <td>Photo</td>
+      <td>Price</td>
+      <td>&nbsp;</td>
+      
+    </tr>
+    {% for i in res %}
+    <tr>
+      <td>{{forloop.counter}}</td>
+      <td>{{i.d_name}}</td>
+      <td>{{i.d_discription}}</td>
+      <td><img src="{{i.d_photo.url}}" height="100px" width="100px"></td>
+      <td>{{i.d_price}}</td>
+      <td><a href="{% url 'edit_dish' i.d_id %}" class="btn btn-primary">edit</a><br><br>
+      <a href="{% url 'delete_dish' i.d_id %}" class="btn btn-danger">delete</a></td>
+    </tr>
+    {% endfor %}
+  </table>
+</form>
+{% endblock %}

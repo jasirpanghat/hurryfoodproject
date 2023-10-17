@@ -1,0 +1,68 @@
+{% extends 'customer_templates/dashbord.html' %}
+{% block body %}
+  <form  method="post" action='insertorder'>
+    {% csrf_token %}
+
+  <table class="table table-bordered" style="background-color: aliceblue;">
+    <tr style="background-color: #15283c">
+      <td><div>
+        <div>Dish</div>
+      </div></td>
+      <td><div>
+        <div>Discription</div>
+      </div></td>
+      <td><div>
+        <div>Restaurant</div>
+      </div></td>
+      <td><div>
+        <div>price</div>
+      </div></td>
+      <td><div>
+        <div>quantity</div>
+      </div></td>
+      
+      {% for i in res  %} 
+
+      <tr>
+        <td>{{i.ct_dish.d_name}}</td>
+        <td>{{i.ct_dish.d_discription}}</td>
+        <td>{{i.ct_restaurant.r_name}}</td>
+        <td>{{i.ct_dish.d_price}}</td>
+        <td>{{i.quantity}}</td>
+        
+        
+     
+        
+        
+      </tr>
+      {% endfor %}
+    <tr>
+      <td colspan="5" align="right">Grand Total  </td>
+      <td>{{sum1}}</td>
+    </tr>
+    <tr>
+      <td >District</td>
+      <td><label>
+        <select name="select">
+		<option> Ernakulam</option>
+        </select>
+      </label></td>
+      <td>City:</td>
+      <td><label>
+        <input type="text" name="city" />
+      </label></td>
+      <td>Streetno & House no</td>
+      <td><label>
+        <textarea name="textarea" required class="form-control"></textarea>
+      </label></td>
+    </tr>
+    <tr>
+      <td colspan="6" align="center"><label>
+
+        
+        <input type="submit" name="Submit" value="Submit" class="btn btn-success"/>
+      </label></td>
+    </tr>
+  </table>
+</form>
+{% endblock %}

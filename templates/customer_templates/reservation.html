@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Reservation Form</title>
+ <style>
+  body {
+   font-family: Arial, sans-serif;
+   margin: 0;
+   padding: 0;
+  }
+  form {
+   width: 50%;
+   margin: auto;
+   border: 1px solid #ccc;
+   padding: 20px;
+   box-sizing: border-box;
+  }
+  input, select {
+   padding: 10px;
+   margin: 10px 0;
+   border-radius: 5px;
+   border: 1px solid #ccc;
+   width: 100%;
+   box-sizing: border-box;
+   font-size: 16px;
+  }
+  button {
+   background-color: #4CAF50;
+   color: #fff;
+   padding: 10px 20px;
+   border: none;
+   border-radius: 5px;
+   cursor: pointer;
+   font-size: 16px;
+   margin-top: 20px;
+  }
+  
+  .box {
+    padding: 10px;
+   margin: 10px 0;
+   border-radius: 5px;
+   border: 1px solid #ccc;
+   width: 100%;
+   box-sizing: border-box;
+   font-size: 16px;
+  }
+ 
+ </style>
+</head>
+<body>
+ <form method="POST" action="" enctype="multipart/form-data">
+  {% csrf_token %}
+  <h2>Reservation Form</h2>
+  <label for="name">Name:</label>
+  <input type="text" id="name" name="name" required>
+
+  <label for="email">Email:</label>
+  <input type="email" id="email" name="email" required>
+
+  <label for="phone">Phone Number:</label>
+  <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required>
+
+  <label for="date">Date:</label>
+  <input type="date" id="date" name="date" required>
+
+  
+
+  <label for="party-type">Party Type:</label>
+  <select id="party-type" name="party-type">
+   <option value="">Select</option>
+   <option value="restaurant-dining">Restaurant Dining</option>
+   <option value="events-party">Events Party</option>
+  </select>
+
+  <div id="restaurant-options" style="display:none;">
+
+   <label for="time">Time:</label>
+   <input type="time" id="time" name="time">
+   <label for="name">No Of Available Dinings:</label>
+   <div class="box">
+    
+    <p>{{av.t_capacity}}</p>
+   </div>
+
+   <label for="num-of-people">Number of People:</label>
+   <input type="number" id="num-of-people" name="num-of-people">
+
+   <label for="special-requests">Special Requests:</label>
+   <textarea id="special-requests" name="special-requests"></textarea>
+   <button type="submit">Submit</button>
+  </div>
+  
+
+  <div id="event-options" style="display:none;">
+   <label for="event-type">Event Type:</label>
+   <select id="event-type" name="event-type">
+    <option value="">Select</option>
+    <option value="wedding">Wedding</option>
+    <option value="birthday-party">Birthday Party</option>
+    <option value="corporate-event">Corporate Event</option>
+   </select>
+
+   <label for="num-of-guests">Number of Guests:</label>
+   <input type="number" id="num-of-guests" name="num-of-guests">
+
+   <h4>{{res}}</h4>
+
+   
+    <label for="event-requests">Special Requests:</label><br>
+    <textarea id="event-requests" name="event-requests"></textarea>
+    <form method="POST" action="" enctype="multipart/form-data"></form>
+    <button type="submit">Submit</button> </div>
+    
+    </form> <script> const partyTypeSelect = document.getElementById('party-type');
+     const restaurantOptions = document.getElementById('restaurant-options');
+        const eventOptions = document.getElementById('event-options'); 
+        partyTypeSelect.addEventListener('change', function() { if (partyTypeSelect.value === 'restaurant-dining') { restaurantOptions.style.display = 'block'; eventOptions.style.display = 'none'; } else if (partyTypeSelect.value === 'events-party') { eventOptions.style.display = 'block'; restaurantOptions.style.display = 'none'; } else { restaurantOptions.style.display = 'none'; eventOptions.style.display = 'none'; } });
+      </script> 
+      </body> 
+      </html>

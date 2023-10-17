@@ -1,0 +1,19 @@
+{% extends 'admin_templates/dashbord.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="">
+  <table class="table table-bordered" style="background-color: aliceblue;">
+    <tr style="background-color: #15283c;">
+      <td>customer_id</td>
+      <td>Restaurant_name</td>
+      <td>Complaint</td>
+    </tr>
+    {% for i in res %}
+    <tr>
+      <td>{{i.customer.c_id}}</td>
+      <td>{{i.restaurant}}</td>
+      <td>{{i.complaints}}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</form>
+{% endblock %}

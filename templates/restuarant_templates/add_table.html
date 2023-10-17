@@ -1,0 +1,25 @@
+{% extends 'restuarant_templates/dashbord.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="">
+  {% csrf_token %}
+  <table class="table table-bordered" style="background-color: aliceblue;">
+    <tr>
+      <td>No Of Table: </td>
+      <td>
+        <input type="text" name="textfield" required class="form-control"/>
+      </td>
+    </tr>
+    <tr>
+      <td>capacity</td>
+      <td>
+        <input type="text" name="textfield2" required class="form-control"/>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <input type="submit" name="Submit" value="ADD" class="btn btn-success"/>
+      </td>
+    </tr>
+  </table>
+</form>
+{% endblock %}

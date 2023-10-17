@@ -1,0 +1,70 @@
+{% extends 'customer_templates/dashbord.html' %}
+{% block body %}
+<head>
+  <style>
+    .card {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  text-align: center;
+  width: 160px;
+  float: left;
+  margin-left: 20px;
+}
+
+.card img {
+  max-width: 100%;
+}
+
+.card h2 {
+  font-size: 1.2rem;
+  margin: 10px 0;
+}
+
+.card p {
+  font-size: 1rem;
+  margin: 0;
+}
+
+.card button {
+  background-color: #007bff;
+  border: none;
+  color: #fff;
+}
+  </style>
+</head>
+<form id="form1" name="form1" method="post" action="">
+  {% for i in res%}
+
+  <!-- <table class="table table-bordered">
+    <tr>
+      <td><img src="{{i.DISH.d_photo.url}}" height="200px" width="200px"></td>
+    </tr>
+    <tr>
+      <td>{{i.DISH.d_name}}</td>
+    </tr>
+    <tr>
+      <td>{{i.of_code}}</td>
+    </tr>
+    <tr>
+      <td>{{i.offer}}<br>{{i.discount_percentage}}%</td>
+    </tr>
+    <tr>
+      <td>FROM :{{i.from_date}}</td>
+    </tr>
+    <tr>
+      <td>TO :{{i.to_date}}</td>
+    </tr>
+  </table> -->
+  <div class="card">
+    <img src="{{i.DISH.d_photo.url}}" height="150px" width="150px">
+    <h2>{{i.DISH.d_name}}</h2>
+    <h5>{{i.DISH.d_discription}}</h5>
+    <h4>{{i.offer}}</h4>
+    <h5></h5>
+
+    
+  </div>
+  {% endfor %}
+</form>
+{% endblock %}

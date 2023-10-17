@@ -1,0 +1,33 @@
+{% extends 'customer_templates/dashbord.html' %}
+{% block body %}
+    <form method="post" action="{% url 'payment'  %}">
+        {% csrf_token %}
+        <table class="table table-bordered" style="background-color: aliceblue;">
+            <tr style="background-color: #15283c;">
+              <td>Disrict</td>
+              <td>City</td>
+              <td>Streeno & Houseno</td>
+              <td>&nbsp;</td>
+              
+            </tr>
+            
+            <tr>
+              <td>{{res.district}}</td>
+              <td>{{res.city}}</td>
+              <td>{{res.street}}</td>
+              <td><label>
+                <a href="{% url 'edit_address' res.id %}" class="btn btn-primary">Edit</a>
+              </label></td>
+              
+            </tr>
+            <tr>
+            <td colspan="6" align="center"><label>
+
+        
+                <input type="submit" name="Submit" value="Submit" class="btn btn-success"/>
+              </label></td>
+            </tr>
+          </table>
+        
+    </form>
+{% endblock %}

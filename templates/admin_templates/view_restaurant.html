@@ -1,0 +1,38 @@
+{% extends 'admin_templates/dashbord.html' %}
+{% block body %}
+    <form id="form1"  method="post" action="">
+      <table class="table table-bordered" style="background-color: aliceblue;">
+        <tr style="background-color: #15283c;">
+          <td>Slno</td>
+          <td>Name</td>
+          <td>Location</td>
+          <td>Email</td>
+          
+          <td>Mobile.no</td>
+          <td>License_photo</td>
+          
+          <td>Restaurant_photo</td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+        </tr>
+        {% for i in res %}
+
+        {% if  i.LOGIN_id.status  == True  %}
+        <tr>
+          <td>{{forloop.counter}}</td>
+          <td>{{i.r_name}}</td>
+          <td>{{i.r_location}}</td>
+          <td>{{i.r_mail}}</td>
+          
+          <td>{{i.r_mobile}}</td>
+          <td><img src="{{i.license_photo.url}}" height="100px" width="100px"></td>
+          <td><img src="{{i.r_photo.url}}" height="100px" width="100px"></td>
+          
+          <td><a href="{% url 'block' i.LOGIN_id.login_id %}" class="btn btn-danger">Block</a><br><br>
+          <a href="{% url 'edit' i.LOGIN_id.login_id %}" class="btn btn-primary">edit</a></td>
+        </tr>
+          {% endif %}
+        {% endfor %}
+      </table>
+    </form>
+ {% endblock %}

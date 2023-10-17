@@ -1,0 +1,50 @@
+{% extends 'restuarant_templates/dashbord.html' %}
+{% block body %}
+<head>
+<style>
+  .h51{ font-size:small;
+        color: black;
+    
+    
+  
+  }
+  tr{
+    border: 1px solid black;
+  }
+</style>
+</head>
+<form action="dishes" method="post" enctype="multipart/form-data" name="form1" id="form1">
+  {% csrf_token %}
+  <table class="table table-bordered" style="background-color: aliceblue;">
+    <tr>
+      <td >Dish</td>
+      <td><label>
+        <input type="text" name="textfield" required class="form-control"/>
+      </label></td>
+    </tr>
+    <tr>
+      <td>Discription</td>
+      <td><label>
+        <input type="text" name="textfield1" required class="form-control"/>
+      </label></td>
+    </tr>
+    <tr>
+      <td>Photo</td>
+      <td><label>
+        <input type="file" name="file" required class="form-control"/>
+      </label></td>
+    </tr>
+    <tr>
+      <td>Price</td>
+      <td><label>
+        <input type="text" name="textfield2" required class="form-control"/>
+      </label></td>
+    </tr>
+    <tr>
+      <td colspan="2"><label>
+        <input name="Submit" type="submit" id="Submit" value="Add" class="btn btn-primary"/>
+      </label></td>
+    </tr>
+  </table>
+</form>
+{% endblock %}

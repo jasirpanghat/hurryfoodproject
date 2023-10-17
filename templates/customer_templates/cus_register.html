@@ -1,0 +1,70 @@
+{% extends 'customer_templates/dashbord.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="">
+  {% csrf_token %}
+  <table class="table table-bordered">
+    <tr>
+      <td>Name</td>
+      <td><label>
+        <input type="text" name="textfield1" required class="form-control"/>
+      </label></td>
+    </tr>
+    <tr>
+      <td>Phone</td>
+      <td><label>
+        <input type="text" name="textfield2" required class="form-control"/>
+      </label></td>
+    </tr>
+    <tr>
+      <td>Email</td>
+      <td><label>
+        <input type="text" name="textfield3" required class="form-control" />
+      </label></td>
+    </tr>
+
+    <tr>
+      <td>Password</td>
+      <td><label>
+        <input type="password" name="textfield4" required class="form-control"/>
+      </label></td>
+    </tr>
+    <tr>
+      <td>Confirm Password </td>
+      <td><label>
+        <input type="password" name="textfield5" onkeyup="return aa()" required class="form-control"/>
+      </label></td>
+    </tr>
+    <tr>
+      <td colspan="2"><label>
+        <input type="submit" name="Submit" value="Submit" class="btn btn-success"/>
+      </label></td>
+    </tr>
+  </table>
+<script>
+
+  function aa() {
+
+
+    var a=document.getElementById("textfield4").value;
+
+    {alert(a);}
+    var b=document.getElementById("textfield5").value;
+
+    {alert(b)}
+    if (a!=b)
+    {
+      alert("mismatch");
+      document.getElementById("msg").innerHTML="Mismatch";
+      return false;
+    }
+    else
+      {
+          document.getElementById("msg").innerHTML="";
+          return true;
+      }
+  }
+
+</script>
+
+</form>
+{% endblock %}

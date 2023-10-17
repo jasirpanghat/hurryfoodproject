@@ -1,0 +1,53 @@
+{% extends 'restuarant_templates/dashbord.html' %}
+{% block body %}
+<form action="add_offer" method="post" enctype="multipart/form-data" name="form1" id="form1">
+  {% csrf_token %}
+  <table class="table table-bordered" style="background-color: aliceblue;">
+    
+    <tr>
+      <td>Dish</td>
+      <td><select name="select">
+        {% for i in res %}
+        <option value="{{ i.d_id }}" >{{ i.d_name }}</option>
+        {% endfor %}
+      </select>
+      
+    </tr>
+    <tr>
+      <td>Offer_Code</td>
+      <td><label>
+        <input type="text" name="textfield1" required class="form-control"/>
+      </label></td>
+    </tr>
+    <tr>
+      <td>Offer</td>
+      <td><label>
+        <input type="text" name="textfield2" required class="form-control"/>
+      </label></td>
+    </tr>
+    <tr>
+      <td>discount percentage</td>
+      <td><label>
+        <input type="text" name="textfield3" required class="form-control"/>
+      </label></td>
+    </tr>
+    <tr>
+      <td>from_date</td>
+      <td><label>
+        <input type="date" name="textfield4" required class="form-control"/>
+      </label></td>
+    </tr>
+    <tr>
+      <td>to_date</td>
+      <td><label>
+        <input type="date" name="textfield5" required class="form-control"/>
+      </label></td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <input type="submit" name="Submit" value="Submit" class="btn btn-success"/>
+      </td>
+    </tr>
+  </table>
+</form>
+{% endblock %}

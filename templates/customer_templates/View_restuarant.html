@@ -1,0 +1,66 @@
+{% extends 'customer_templates/dashbord.html' %}
+{% block body %}
+<head>
+  <style>
+    .card {
+  border: 2px solid goldenrod;
+  border-radius: 5px;
+  padding: 10px;
+  text-align: center;
+  width: 200px;
+  float: left;
+  margin-left: 20px;
+  
+}
+
+.card img {
+  max-width: 100%;
+}
+
+.card h2 {
+  font-size: 1.2rem;
+  margin: 10px 0;
+}
+
+.card p {
+  font-size: 1rem;
+  margin: 0;
+}
+
+.card button {
+  background-color: #007bff;
+  border: none;
+  color: #fff;
+}
+  </style>
+</head>
+<form id="form1" name="form1" method="post" action="">
+  
+  {% for i in res %}
+    {% if  i.LOGIN_id.status  == True  %}
+      <!-- <table class="table table-bordered">
+      <tr>
+        <td><img src="{{i.r_photo.url}}" height="100px" width="100px"></td>
+      </tr>
+      <tr>
+        <td>{{i.r_name}}</td>
+      </tr>
+      <tr>
+        <td>{{i.r_location}}</td>
+      </tr>
+      <tr>
+        <td><a href="{% url 'viewhome' i.r_id %}" class="btn btn-primary">GO</a></td>
+      </tr>
+    </table> -->
+    <div class="card">
+      <img src="{{i.r_photo.url}}" height="180px" width="200px">
+      <h2>{{i.r_name}}</h2>
+      <h5>{{i.r_location}}</h5>
+      <h5>{{i.r_mobile}}</h5>
+      <a href="{% url 'viewhome' i.r_id %}" class="btn btn-primary">GO</a>
+    </div>
+    {% endif %}
+  {% endfor %}
+</form>
+
+{% endblock %}

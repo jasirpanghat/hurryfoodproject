@@ -1,0 +1,55 @@
+{% extends 'admin_templates/dashbord.html' %}
+{% block body %}
+<form action="register" method="post" enctype="multipart/form-data" name="form1" id="form1">
+  {% csrf_token %}
+  <table class="table table-bordered" style="background-color: aliceblue;">
+    <tr>
+      <td>Restaurant Name </td>
+      <td>
+        <input type="text" name="rest_name" required class="form-control"/>
+      </td>
+    </tr>
+    <tr>
+      <td>Location</td>
+      <td>
+        <input type="text" name="rest_location"required class="form-control" />
+      </td>
+    </tr>
+    <tr>
+      <td>License Number </td>
+      <td>
+        <input type="text" name="rest_licnum" required class="form-control"/>
+      </td>
+    </tr>
+    <tr>
+      <td>License Photo </td>
+      <td>
+        <input type="file" name="file1"  required class="form-control"/>
+      </td>
+    </tr>
+    <tr>
+      <td>Restaurant Photo </td>
+      <td>
+        <input type="file" name="file2" required class="form-control" />
+      </td>
+    </tr>
+    <tr>
+      <td>Mobile.no</td>
+      <td>
+        <input type="number" name="rest_mob"required class="form-control" minlength="10" maxlength="10"/>
+      </td>
+    </tr>
+    <tr>
+      <td>Email</td>
+      <td>
+        <input type="email" name="rest_mail"required class="form-control"/>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <input type="submit" name="Submit" value="Submit" class="btn btn-success"/>
+      </label></td>
+    </tr>
+  </table>
+</form>
+{% endblock %}

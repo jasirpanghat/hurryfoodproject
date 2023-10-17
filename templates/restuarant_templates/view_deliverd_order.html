@@ -1,0 +1,33 @@
+{% extends 'restuarant_templates/dashbord.html' %}
+{% block body %}
+
+  <table class="table table-bordered" style="background-color: aliceblue;">
+    <tr style="background-color:#15283c;">
+      <td>Order_Id</td>
+      <td>Customer_Name</td>
+      <td>Contact</td>
+      <td>Dish_Name</td>
+      <td>Discription</td>
+      <td>Quantity</td>
+      <td>Payment</td>
+      <td>Address</td> 
+    </tr>
+    {% for i in res %}
+    <tr>
+      <td>{{i.order.order_number}}</td>
+      <td>{{i.customer.c_name}}</td>
+      <td>{{i.customer.c_phone}}</td>
+      <td>{{i.dish}}</td>
+      <td>{{i.discription}}</td>
+      <td>{{i.quantity}}</td>
+      <td>{{i.order.payment.status}}</td>
+      <td>{{i.order.address.street}}
+        {{i.order.address.city}}
+        {{i.order.address.district}}
+      
+      
+    </tr>
+    {% endfor %}
+  </table>
+</form>
+{% endblock %}

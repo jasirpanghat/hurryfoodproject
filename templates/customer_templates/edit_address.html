@@ -1,0 +1,34 @@
+{% extends 'customer_templates/dashbord.html' %}
+{% block body %}
+        <form  method="post" action=''>
+          {% csrf_token %}
+      
+        <table class="table table-bordered" style="background-color: aliceblue;">
+          
+            
+          <tr>
+            <td >District</td>
+            <td><label>
+              <select name="select" required class="form-control">
+              <option> Ernakulam</option>
+              </select>
+            </label></td>
+            <td>City:</td>
+            <td><label>
+              <input type="text" name="city"  value="" required class="form-control"/>
+            </label></td>
+            <td>Streetno & House no</td>
+            <td><label>
+              <textarea name="textarea" value="" required class="form-control"></textarea>
+            </label></td>
+          </tr>
+          <tr>
+            <td colspan="6" align="center"><label>
+      
+              
+              <input type="submit" name="Submit" value="Submit" class="btn btn-success"/>
+            </label></td>
+          </tr>
+        </table>
+      </form> 
+{% endblock %}

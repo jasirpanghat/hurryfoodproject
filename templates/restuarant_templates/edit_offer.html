@@ -1,0 +1,51 @@
+{% extends 'restuarant_templates/dashbord.html' %}
+{% block body %}
+<form action="" method="post" enctype="multipart/form-data" name="form1" id="form1">
+  {% csrf_token %}
+  <table class="table table-bordered" style="background-color: aliceblue;">
+    
+    <tr>
+      <td>Dish</td>
+      <td><label>
+        <input type="text" name="name" value="{{res.DISH.d_name}}" class="form-control" required />
+      </label></td>
+      
+    </tr>
+    <tr>
+      <td>Offer_Code</td>
+      <td><label>
+        <input type="text" name="textfield1" value=" {{res.of_code}}" class="form-control" required />
+      </label></td>
+    </tr>
+    <tr>
+      <td>Offer</td>
+      <td><label>
+        <input type="text" name="textfield2" value="{{res.offer}}" class="form-control" required/>
+      </label></td>
+    </tr>
+    <tr>
+      <td>discount percentage</td>
+      <td><label>
+        <input type="text" name="textfield3" value="{{res.discount_percentage}}" class="form-control" required/>
+      </label></td>
+    </tr>
+    <tr>
+      <td>from_date</td>
+      <td><label>
+        <input type="date" name="textfield4" value="{{res.from_date}}" class="form-control" required/>
+      </label></td>
+    </tr>
+    <tr>
+      <td>to_date</td>
+      <td><label>
+        <input type="date" name="textfield5" value="{{res.to_date}}" class="form-control" required/>
+      </label></td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <input type="submit" name="Submit" value="Submit" class="btn btn-success" />
+      </td>
+    </tr>
+  </table>
+</form>
+{% endblock %}
